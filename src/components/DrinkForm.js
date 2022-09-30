@@ -3,28 +3,15 @@ import drinkSeed from "./drinkSeed";
 
 const DrinkForm = (props) => {
 
-    //establishing default drink values
-    const defaultProductName = drinkSeed.productName[0];
-    const defaultProductType = drinkSeed.productType[0];
-    const defaultProductSize = drinkSeed.productSize[0];
-    const defaultProductImage = drinkSeed.productImage[0];
-    const defaultMilk = drinkSeed.milk[0];
-    const defaultFlavor = drinkSeed.flavor[0];
-    const defaultTopping = drinkSeed.topping[0];
-
-
     const [form, setForm] = useState({
-        
-        productName: defaultProductName,
-        productType: defaultProductType,
-        produtSize: defaultProductSize,
-        productImage: defaultProductImage,
-        milk: defaultMilk,
-        flavor: defaultFlavor,
-        topping: defaultTopping
+        productName: drinkSeed.productName[0],
+        productType: drinkSeed.productType[0],
+        produtSize: drinkSeed.productSize[0],
+        productImage: drinkSeed.productImage[0],
+        milk: drinkSeed.milk[0],
+        flavor: drinkSeed.flavor[0],
+        topping: drinkSeed.topping[0]
     });
-
-
 
     console.log(form);
 
