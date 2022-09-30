@@ -1,9 +1,14 @@
 import { useState } from "react";
+import drinkSeed from "./drinkSeed";
 
 const DrinkForm = (props) => {
 
+    //establishing default drink values
+    const firstProductType = drinkSeed.productType[0];
+
+
     const [form, setForm] = useState({
-        productName: "",
+        productName: firstProductType,
         productType: "",
         produtSize: "",
         productImage: "",
@@ -11,6 +16,9 @@ const DrinkForm = (props) => {
         flavor: "",
         toppings: ""
     });
+
+
+
     console.log(form);
 
     const handleChange = (event) => {
@@ -20,15 +28,13 @@ const DrinkForm = (props) => {
 
     return (
         <form>
-            <select name="type" onChange={handleChange}>
-                <option value="black coffee">black coffee</option>
-                <option value="mocha">mocha</option>
-                <option value="frappe">frappe</option>
+            <select name="productName" onChange={handleChange}>
+                <option value="coffee">coffee</option>
                 <option value="tea">tea</option>
-                <option value="earl grey">earl grey</option>
+                <option value="coco">coco</option>
             </select>
             <select name="type" onChange={handleChange}>
-                <option value="black coffee">black coffee</option>
+                <option value="black">black</option>
                 <option value="mocha">mocha</option>
                 <option value="frappe">frappe</option>
                 <option value="tea">tea</option>
@@ -50,6 +56,7 @@ const DrinkForm = (props) => {
                 <option value="pumpkin spice">pumpkin spice</option>
                 <option value="apple cinnamon">apple cinnamon</option>
             </select>
+            <input type="submit" value="submit"/>
         </form>
     )
 }
