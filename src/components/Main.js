@@ -6,7 +6,7 @@ const Main = () => {
   
   return (
     <div>
-        <h1>Main</h1>
+        <h1>How would you like your drink?</h1>
         <DrinkForm drink={drink}/>
     </div>
   )

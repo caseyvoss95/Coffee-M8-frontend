@@ -6,7 +6,7 @@ const DrinkForm = (props) => {
     const [form, setForm] = useState({
         productName: drinkSeed.productName[0],
         productType: drinkSeed.productType[0],
-        produtSize: drinkSeed.productSize[0],
+        productSize: drinkSeed.productSize[0],
         productImage: drinkSeed.productImage[0],
         milk: drinkSeed.milk[0],
         flavor: drinkSeed.flavor[0],
@@ -33,7 +33,7 @@ const DrinkForm = (props) => {
                 <option value="frappe">frappe</option>
                 <option value="earl grey">earl grey</option>
             </select>
-            <select name="size" onChange={handleChange}>
+            <select name="productSize" onChange={handleChange}>
                 <option value="small">small</option>
                 <option value="meduim">medium</option>
                 <option value="large">large</option>
@@ -49,7 +49,12 @@ const DrinkForm = (props) => {
                 <option value="pumpkin spice">pumpkin spice</option>
                 <option value="apple cinnamon">apple cinnamon</option>
             </select>
-            <input type="submit" value="submit"/>
+            <select name="topping" onChange={handleChange}>
+                <option value="none">(none)</option>
+                <option value="pumpkin spice">pumpkin spice</option>
+                <option value="apple cinnamon">apple cinnamon</option>
+            </select>
+            <input type="submit" value="submit" />
         </form>
     )
 }

@@ -1,7 +1,7 @@
 const drinkSeed = {
 
     productName:
-        ["cofee", "tea", "coco"],
+        ["coffee", "tea", "coco"],
 
     productType:
         ["black", "mocha", "frappe", "earl grey"],
