@@ -4,6 +4,7 @@ import DrinkForm from "./DrinkForm";
 import drinkSeed from "./drinkSeed";
 
 const Main = () => {
+  //create default drink
   const [drink, setDrink] = useState({
     productName: drinkSeed.productName[0],
     productType: drinkSeed.productType[0],
@@ -13,6 +14,13 @@ const Main = () => {
     flavor: drinkSeed.flavor[0],
     topping: drinkSeed.topping[0]
   });
+
+  const URL = "http://localhost:4000/allOrders/"
+
+  //post route for drink TODO: finish
+  const createDrink = async (drink) => {
+    await fetch()
+  }
 
 
   return (
@@ -28,11 +36,6 @@ const Main = () => {
         </div>
       </Route>
     </Switch>
-
-
-
-
-
   )
 }
 

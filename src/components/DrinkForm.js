@@ -55,8 +55,8 @@ const DrinkForm = (props) => {
             </select>
             <select name="topping" onChange={handleChange}>
                 <option value="none">(none)</option>
-                <option value="pumpkin spice">pumpkin spice</option>
-                <option value="apple cinnamon">apple cinnamon</option>
+                <option value="none">none</option>
+                <option value="whipped cream">whipped cream</option>
             </select>
             <input type="submit" value="submit" />
         </form>
