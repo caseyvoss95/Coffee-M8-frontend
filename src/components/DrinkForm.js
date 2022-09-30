@@ -13,15 +13,19 @@ const DrinkForm = (props) => {
         topping: drinkSeed.topping[0]
     });
 
-    console.log(form);
-
     const handleChange = (event) => {
         setForm({ ...form, [event.target.name]: [event.target.value] });
-        console.log(form);
+        //console.log(form);
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        props.setDrink(form);
+        console.log(props.drink);
     }
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <select name="productName" onChange={handleChange}>
                 <option value="coffee">coffee</option>
                 <option value="tea">tea</option>
