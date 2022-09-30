@@ -4,17 +4,24 @@ import drinkSeed from "./drinkSeed";
 const DrinkForm = (props) => {
 
     //establishing default drink values
-    const firstProductType = drinkSeed.productType[0];
+    const defaultProductName = drinkSeed.productName[0];
+    const defaultProductType = drinkSeed.productType[0];
+    const defaultProductSize = drinkSeed.productSize[0];
+    const defaultProductImage = drinkSeed.productImage[0];
+    const defaultMilk = drinkSeed.milk[0];
+    const defaultFlavor = drinkSeed.flavor[0];
+    const defaultTopping = drinkSeed.topping[0];
 
 
     const [form, setForm] = useState({
-        productName: firstProductType,
-        productType: "",
-        produtSize: "",
-        productImage: "",
-        milk: "",
-        flavor: "",
-        toppings: ""
+        
+        productName: defaultProductName,
+        productType: defaultProductType,
+        produtSize: defaultProductSize,
+        productImage: defaultProductImage,
+        milk: defaultMilk,
+        flavor: defaultFlavor,
+        topping: defaultTopping
     });
 
 
@@ -33,11 +40,10 @@ const DrinkForm = (props) => {
                 <option value="tea">tea</option>
                 <option value="coco">coco</option>
             </select>
-            <select name="type" onChange={handleChange}>
+            <select name="productType" onChange={handleChange}>
                 <option value="black">black</option>
                 <option value="mocha">mocha</option>
                 <option value="frappe">frappe</option>
-                <option value="tea">tea</option>
                 <option value="earl grey">earl grey</option>
             </select>
             <select name="size" onChange={handleChange}>
