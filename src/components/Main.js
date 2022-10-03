@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { Route, Switch, } from "react-router-dom";
 import Login from "../pages/Login";
 import DrinkForm from "./DrinkForm";
-// import HostView from "../pages/HostView";
-import drinkSeed from "./drinkSeed";
 import OrderIndex from "./OrderIndex";
 
 const Main = () => {
