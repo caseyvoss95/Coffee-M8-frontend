@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch, } from "react-router-dom";
+import Login from "../pages/Login";
 import DrinkForm from "./DrinkForm";
+import HostView from "../pages/HostView";
 import drinkSeed from "./drinkSeed";
 
 const Main = () => {
@@ -30,30 +32,32 @@ const Main = () => {
     //maybe we could index all drinks that an individual user orders
   }
 
-  //update drink route
-  const updateDrink = async (drink) => {
-    await fetch(URL, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "Application/json"
-      },
-      body: JSON.stringify(drink)
-    })
-    //refresh index here.. "" etc
-  }
+  // //update drink route
+  // const updateDrink = async (drink) => {
+  //   await fetch(URL, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-Type": "Application/json"
+  //     },
+  //     body: JSON.stringify(drink)
+  //   })
+  //   //refresh index here.. "" etc
+  // }
 
 
   return (
     <Switch>
       <Route exact path="/">
-        <h1>login screen</h1>
-        <Link to="/order"><button>Login</button></Link>
+        <Login />
       </Route>
-      <Route path="/order">
+      <Route path="/drink">
         <div>
           <h1>How would you like your drink?</h1>
-          <DrinkForm drink={drinks} setDrinks={setDrinks} createDrink={createDrink}/>
+          <DrinkForm drink={drinks} setDrinks={setDrinks} createDrink={createDrink} />
         </div>
+      </Route>
+      <Route path="/order">
+        <HostView/>
       </Route>
     </Switch>
   )
