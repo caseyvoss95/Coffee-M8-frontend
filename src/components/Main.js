@@ -17,14 +17,14 @@ const Main = () => {
     topping: drinkSeed.topping[0],
   });
 
-  const URL = "http://localhost:4000/orders/allOrders/63372013187b01b84368ce48/addCustomizedDrink";
+  const URL = "http://localhost:4000/orders/allItems/";
 
   //post route for drink
   const createDrink = async (drink) => {
     await fetch(URL, {
-      method: "PUT",
+      method: "POST",
       headers: {
-        "Content-Type": "Application/json"
+        "Content-Type": "Application/json",
       },
       body: JSON.stringify(drink)
     });

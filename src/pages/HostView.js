@@ -4,7 +4,7 @@ const HostView = () => {
   
     const [drinkList, setDrinkList] = useState(null);
 
-    const URL = "http://localhost:4000/orders/allOrders"; //where orders live
+    const URL = "http://localhost:4000/orders/allItems/63372013187b01b84368ce48/"; //where orders live
     const orderID = "63372013187b01b84368ce48"; //Dunkin order ID
   
     const getDrinks = async () => {
@@ -22,4 +22,4 @@ const HostView = () => {
   )
 }
 
-export default HostView
+export default HostView;
