@@ -10,18 +10,18 @@ const DrinkForm = (props) => {
         productImage: drinkSeed.productImage[0],
         milk: drinkSeed.milk[0],
         flavor: drinkSeed.flavor[0],
-        topping: drinkSeed.topping[0]
+        topping: drinkSeed.topping[0],
     });
 
     const handleChange = (event) => {
-        setForm({ ...form, [event.target.name]: [event.target.value] });
-        //console.log(form);
+        setForm({ ...form, [event.target.name]: event.target.value});
+        console.log(form);
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.setDrink(form);
-        console.log(props.drink);
+        props.createDrink(form);
+        console.log("drink is", form);
     }
 
     return (
@@ -55,7 +55,6 @@ const DrinkForm = (props) => {
             </select>
             <select name="topping" onChange={handleChange}>
                 <option value="none">(none)</option>
-                <option value="none">none</option>
                 <option value="whipped cream">whipped cream</option>
             </select>
             <input type="submit" value="submit" />
