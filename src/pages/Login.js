@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
     return (
-        <div>
+        <div className="container">
             <h1>login screen</h1>
-            <Link to="/drink"><button>User Login</button></Link>
-            <Link to="/order"><button>Host Login</button></Link>
+            <Link to="/drink"><button className="btn">User Login</button></Link>
+            <Link to="/order"><button className="btn">Host Login</button></Link>
         </div>
     )
 }
