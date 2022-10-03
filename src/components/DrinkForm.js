@@ -10,7 +10,7 @@ const DrinkForm = (props) => {
         productImage: drinkSeed.productImage[0],
         milk: drinkSeed.milk[0],
         flavor: drinkSeed.flavor[0],
-        topping: drinkSeed.topping[0],
+        toppings: drinkSeed.topping[0],
         orderId : "63372013187b01b84368ce48"
     });
 
@@ -40,7 +40,7 @@ const DrinkForm = (props) => {
             </select>
             <select name="productSize" onChange={handleChange}>
                 <option value="small">small</option>
-                <option value="meduim">medium</option>
+                <option value="medium">medium</option>
                 <option value="large">large</option>
             </select>
             <select name="milk" onChange={handleChange}>
@@ -54,7 +54,7 @@ const DrinkForm = (props) => {
                 <option value="pumpkin spice">pumpkin spice</option>
                 <option value="apple cinnamon">apple cinnamon</option>
             </select>
-            <select name="topping" onChange={handleChange}>
+            <select name="toppings" onChange={handleChange}>
                 <option value="none">(none)</option>
                 <option value="whipped cream">whipped cream</option>
             </select>
