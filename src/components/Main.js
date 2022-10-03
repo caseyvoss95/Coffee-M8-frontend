@@ -53,7 +53,7 @@ const Main = () => {
         <Login />
       </Route>
       <Route path="/drink">
-        <div>
+        <div className="container">
           <h1>How would you like your drink?</h1>
           <DrinkForm drink={drinks} setDrinks={setDrinks} createDrink={createDrink} />
         </div>
