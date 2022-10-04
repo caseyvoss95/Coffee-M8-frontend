@@ -4,6 +4,7 @@ import Login from "../pages/Login";
 import DrinkForm from "./DrinkForm";
 import NewOrder from "./NewOrder";
 import OrderIndex from "./OrderIndex";
+import Register from "../pages/Register";
 
 const Main = () => {
   //state container for all drinks
@@ -52,6 +53,9 @@ const Main = () => {
     <Switch>
       <Route exact path="/">
         <Login />
+      </Route>
+      <Route path="/register">
+        <Register/>
       </Route>
       <Route path="/drink">
         <div className="container">
