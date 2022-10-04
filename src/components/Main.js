@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Route, Switch, } from "react-router-dom";
 import Login from "../pages/Login";
 import DrinkForm from "./DrinkForm";
+import NewOrder from "./NewOrder";
 import OrderIndex from "./OrderIndex";
 
 const Main = () => {
@@ -28,9 +29,9 @@ const Main = () => {
     const response = await fetch(getURL);
     const data = await response.json();
     setDrinks(data);
-    console.log('drinks we have' , data);
+    console.log('drinks we have', data);
   }
-  
+
 
   // //update drink route
   // const updateDrink = async (drink) => {
@@ -43,7 +44,7 @@ const Main = () => {
   //   })
   //   //refresh index here.. "" etc
   // }
-  
+
   useEffect(() => { getDrinks() }, []);
 
 
@@ -59,7 +60,10 @@ const Main = () => {
         </div>
       </Route>
       <Route path="/order">
-        <OrderIndex drinks={drinks} getDrinks={getDrinks}/>
+        <OrderIndex drinks={drinks} getDrinks={getDrinks} />
+      </Route>
+      <Route path="/createNewOrder">
+        <NewOrder />
       </Route>
     </Switch>
   )
