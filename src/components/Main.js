@@ -28,9 +28,9 @@ const Main = () => {
     const response = await fetch(getURL);
     const data = await response.json();
     setDrinks(data);
-    console.log('drinks we have' , data);
+    console.log('drinks we have', data);
   }
-  
+
 
   // //update drink route
   // const updateDrink = async (drink) => {
@@ -43,7 +43,7 @@ const Main = () => {
   //   })
   //   //refresh index here.. "" etc
   // }
-  
+
   useEffect(() => { getDrinks() }, []);
 
 
@@ -59,7 +59,10 @@ const Main = () => {
         </div>
       </Route>
       <Route path="/order">
-        <OrderIndex drinks={drinks} getDrinks={getDrinks}/>
+        <OrderIndex drinks={drinks} getDrinks={getDrinks} />
+      </Route>
+      <Route path="/createNewOrder">
+        <NewOrder />
       </Route>
     </Switch>
   )
