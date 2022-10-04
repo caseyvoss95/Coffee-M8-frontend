@@ -3,9 +3,14 @@ import { useState, useEffect } from "react";
 import { auth } from "../firebase-config";
 import { database } from "../firebase-config";
 import { collection, getDocs } from "firebase/firestore";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 const Login = () => {
+    
+    onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser);
+    })
+
     //user state
     const [users, setUsers] = useState([]);
     const usersCollectionRef = collection(database, "users");
@@ -18,6 +23,7 @@ const Login = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
+    const [user, setUser] = useState({})
     const register = async () => {
         try {
             const user = await createUserWithEmailAndPassword(auth, registerUsername, registerPassword);
@@ -29,11 +35,17 @@ const Login = () => {
     }
 
     const login = async () => {
-
+        try {
+            const user = await signInWithEmailAndPassword(auth, username, password);
+            console.log(user);
+        }
+        catch (error) {
+            console.log(error.message);
+        }
     }
 
     const logout = async () => {
-
+        await signOut(auth);
     }
 
     const handleRegisterUserChange = (event) => {
@@ -65,11 +77,13 @@ const Login = () => {
             
             <input placeholder="username" onChange={(event) => {setUsername(event.target.value)}}/>
             <input placeholder="password" onChange={(event) => {setPassword(event.target.value)}}/>
-            <button>login</button>
+            <button onClick={login}>login</button>
 
-            <h1>current users:</h1>
-            {users.map((user) => {return <div><h1>{user.username}</h1></div>})}
-        </div>
+            <button onClick={logout}>logout</button>
+
+            <h1>logged in user:</h1>
+            {user?.email}
+       </div>
     )
 }
 
