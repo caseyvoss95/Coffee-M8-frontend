@@ -73,13 +73,11 @@ const Login = () => {
             
             <input placeholder="register username" onChange={(event) => {setRegisterUsername(event.target.value)}}/>
             <input placeholder="register password" onChange={(event) => {setRegisterPassword(event.target.value)}}/>
-            <button onClick={register}>register</button><br/>
+            <button className="btn btn-sm" id="register" onClick={register}>register</button><br/>
             
             <input placeholder="username" onChange={(event) => {setUsername(event.target.value)}}/>
             <input placeholder="password" onChange={(event) => {setPassword(event.target.value)}}/>
-            <button onClick={login}>login</button>
-
-            <button onClick={logout}>logout</button>
+            <button className="btn btn-sm" id="login" onClick={login}>login</button>
 
             <h1>logged in user:</h1>
             {user?.email}
