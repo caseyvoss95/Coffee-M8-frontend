@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "@firebase/firestore";
+// import { getFirestore } from "@firebase/firestore"; see comment below
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
@@ -17,4 +17,4 @@ const firebaseConfig = {
   export const auth = getAuth(app);
   console.log('auth is', auth)
 
-  export const database = getFirestore(app);
+  //export const database = getFirestore(app); Only needed if when we decide to store other user data in Firebase
