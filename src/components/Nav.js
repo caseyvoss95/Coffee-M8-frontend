@@ -5,7 +5,7 @@ import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 
 
-const Nav = ({loggedIn, setLoggednIn}) => {
+const Nav = () => {
   
   const [user, setUser] = useState({})
 

@@ -21,9 +21,9 @@ const Login = ({ setLoggedIn }) => {
             console.log(user);
             localStorage.setItem('loggedIn', true);
             setLoggedIn(true);
+            //to test: do I need to reset fields if we're changing pages?
             setUsername("");
             setPassword("");
-            //todo: send user to drinks page
             history.push('/drink');
         }
         catch (error) {
