@@ -61,18 +61,18 @@ const Main = () => {
       <Route path="/register">
         <Register/>
       </Route>
-      {!loggedIn && <Route path="/drink">
+      {loggedIn && <Route path="/drink">
         <div className="container">
           <h1>How would you like your drink?</h1>
           <DrinkForm drink={drinks} setDrinks={setDrinks} createDrink={createDrink} />
         </div>
       </Route>}
-      <Route path="/order">
+      {loggedIn && <Route path="/order">
         <OrderIndex drinks={drinks} getDrinks={getDrinks} />
-      </Route>
-      <Route path="/createNewOrder">
+      </Route>}
+      {loggedIn &&<Route path="/createNewOrder">
         <NewOrder />
-      </Route>
+      </Route>}
     </Switch>
   )
 }
