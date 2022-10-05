@@ -7,7 +7,11 @@ import OrderIndex from "./OrderIndex";
 import Register from "../pages/Register";
 
 const Main = () => {
-  //state container for all drinks
+  
+  //authentication state
+  const [loggedIn, setLoggedIn] = useState(false);
+  
+  //all drinks state
   const [drinks, setDrinks] = useState(null);
 
   const createURL = "https://coffee-m8-backend.herokuapp.com/orders/allItems/";
@@ -52,17 +56,17 @@ const Main = () => {
   return (
     <Switch>
       <Route exact path="/">
-        <Login />
+        <Login setLoggedIn={setLoggedIn} />
       </Route>
       <Route path="/register">
         <Register/>
       </Route>
-      <Route path="/drink">
+      {!loggedIn && <Route path="/drink">
         <div className="container">
           <h1>How would you like your drink?</h1>
           <DrinkForm drink={drinks} setDrinks={setDrinks} createDrink={createDrink} />
         </div>
-      </Route>
+      </Route>}
       <Route path="/order">
         <OrderIndex drinks={drinks} getDrinks={getDrinks} />
       </Route>
