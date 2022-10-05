@@ -2,22 +2,16 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import { auth } from "../firebase-config";
-import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = ({ setLoggedIn }) => {
-
-    onAuthStateChanged(auth, (currentUser) => {
-        setUser(currentUser);
-    });
 
     //special thanks to PedroTech for various Firebase tutorials
     //https://www.youtube.com/c/PedroTechnologies
 
-    //authentication state
+    //authentication states
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
-    const [user, setUser] = useState({})
 
     const login = async (event) => {
         try {
