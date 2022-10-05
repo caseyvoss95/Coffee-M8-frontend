@@ -10,7 +10,7 @@ const Main = () => {
   //state container for all drinks
   const [drinks, setDrinks] = useState(null);
 
-  const createURL = "http://localhost:4000/orders/allItems/";
+  const createURL = "https://coffee-m8-backend.herokuapp.com/orders/allItems/";
 
   //post route for drink
   const createDrink = async (drink) => {
@@ -23,7 +23,7 @@ const Main = () => {
     });
   }
 
-  const getURL = "http://localhost:4000/orders/allItems/63372013187b01b84368ce48/";
+  const getURL = "https://coffee-m8-backend.herokuapp.com/orders/allItems/63372013187b01b84368ce48/";
 
   //index route for host
   const getDrinks = async () => {
