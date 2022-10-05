@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Route, Switch, } from "react-router-dom";
+import { Route, Switch, useHistory} from "react-router-dom";
 import Nav from "./Nav";
 import Login from "../pages/Login";
 import DrinkForm from "./DrinkForm";
@@ -8,6 +8,8 @@ import OrderIndex from "./OrderIndex";
 import Register from "../pages/Register";
 
 const Main = () => {
+
+  const history = useHistory();
 
   //authentication state
   const [loggedIn, setLoggedIn] = useState(false);
@@ -50,15 +52,15 @@ const Main = () => {
         <Route path="/register">
           <Register />
         </Route>
-        {loggedIn && <Route path="/drink">
+        {loggedIn ? <Route path="/drink">
           <div className="container">
             <h1>How would you like your drink?</h1>
             <DrinkForm drink={drinks} setDrinks={setDrinks} createDrink={createDrink} />
           </div>
-        </Route>}
-        {loggedIn && <Route path="/order">
+        </Route> : history.push("/")}
+        {loggedIn ? <Route path="/order">
           <OrderIndex drinks={drinks} getDrinks={getDrinks} />
-        </Route>}
+        </Route>  : history.push("/")}
         {loggedIn && <Route path="/createNewOrder">
           <NewOrder />
         </Route>}
