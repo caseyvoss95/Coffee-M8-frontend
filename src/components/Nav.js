@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
@@ -9,16 +9,18 @@ const Nav = ({loggedIn, setLoggednIn}) => {
   
   const [user, setUser] = useState({})
 
+  const history = useHistory();
+
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
 });
   
-  
-  
   const logout = async () => {
     await signOut(auth);
     localStorage.clear();
+    history.push('/');
   }
+
   return (
     <nav className="navbar">
       Coffee-M8
