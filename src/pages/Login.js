@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 
 import { auth } from "../firebase-config";
@@ -13,6 +13,8 @@ const Login = ({ setLoggedIn }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
+    const history = useHistory();
+
     const login = async (event) => {
         try {
             const user = await signInWithEmailAndPassword(auth, username, password);
@@ -20,6 +22,9 @@ const Login = ({ setLoggedIn }) => {
             localStorage.setItem('loggedIn', true);
             setLoggedIn(true);
             setUsername("");
+            setPassword("");
+            //todo: send user to drinks page
+            history.push('/drink');
         }
         catch (error) {
             console.log(error.message);
