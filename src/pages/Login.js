@@ -4,11 +4,14 @@ import { useState } from "react";
 import { auth } from "../firebase-config";
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 
-const Login = () => {
-    
+const Login = ({ setLoggedIn }) => {
+
     onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
     })
+
+    //special thanks to PedroTech for various Firebase tutorials
+    //https://www.youtube.com/c/PedroTechnologies
 
     //authentication state
     const [username, setUsername] = useState("");
@@ -20,6 +23,8 @@ const Login = () => {
         try {
             const user = await signInWithEmailAndPassword(auth, username, password);
             console.log(user);
+            localStorage.setItem('loggedIn', true);
+            setLoggedIn(true);
         }
         catch (error) {
             console.log(error.message);
@@ -31,15 +36,15 @@ const Login = () => {
             <h1>login screen</h1>
             <Link to="/drink"><button className="btn">User Login</button></Link>
             <Link to="/order"><button className="btn">Host Login</button></Link>
-            <Link to="/register"><button className="btn">User Registration</button></Link> <br/>
+            <Link to="/register"><button className="btn">User Registration</button></Link> <br />
 
-            <input placeholder="username" onChange={(event) => {setUsername(event.target.value)}}/>
-            <input placeholder="password" onChange={(event) => {setPassword(event.target.value)}}/>
+            <input placeholder="username" onChange={(event) => { setUsername(event.target.value) }} />
+            <input placeholder="password" onChange={(event) => { setPassword(event.target.value) }} />
             <button className="btn btn-sm" id="login" onClick={login}>login</button>
 
             <h1>logged in user:</h1>
             {user?.email}
-       </div>
+        </div>
     )
 }
 
