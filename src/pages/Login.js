@@ -8,7 +8,7 @@ const Login = ({ setLoggedIn }) => {
 
     onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
-    })
+    });
 
     //special thanks to PedroTech for various Firebase tutorials
     //https://www.youtube.com/c/PedroTechnologies
@@ -19,12 +19,14 @@ const Login = ({ setLoggedIn }) => {
 
     const [user, setUser] = useState({})
 
-    const login = async () => {
+    const login = async (event) => {
         try {
             const user = await signInWithEmailAndPassword(auth, username, password);
             console.log(user);
             localStorage.setItem('loggedIn', true);
             setLoggedIn(true);
+            //todo: set username and password fields to empty string?
+            //or, just move to the order page.
         }
         catch (error) {
             console.log(error.message);
@@ -41,9 +43,6 @@ const Login = ({ setLoggedIn }) => {
             <input placeholder="username" onChange={(event) => { setUsername(event.target.value) }} />
             <input placeholder="password" onChange={(event) => { setPassword(event.target.value) }} />
             <button className="btn btn-sm" id="login" onClick={login}>login</button>
-
-            <h1>logged in user:</h1>
-            {user?.email}
         </div>
     )
 }
