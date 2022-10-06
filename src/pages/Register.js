@@ -19,10 +19,13 @@ const Register = () => {
     }
 
     return (
-        <div>
-            <input placeholder="register username" onChange={(event) => { setRegisterUsername(event.target.value) }} />
-            <input placeholder="register password" onChange={(event) => { setRegisterPassword(event.target.value) }} />
-            <button className="btn btn-sm" id="register" onClick={register}>register</button><br />
+        <div className="container">
+            <h1>Sign up</h1>
+            <div className="form-group">
+                <input className="form-control" placeholder="register email" onChange={(event) => { setRegisterUsername(event.target.value) }} />
+                <input className="form-control" placeholder="register password" onChange={(event) => { setRegisterPassword(event.target.value) }} />
+                <button className="btn" id="register" onClick={register}>Sign up</button><br />
+            </div>
         </div>
     )
 }
