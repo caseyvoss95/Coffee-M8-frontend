@@ -61,7 +61,7 @@ const Main = () => {
 
   return (
     <div className="main">
-      <Nav setLoggednIn={setLoggedIn} loggedIn={loggedIn} user={user} setUser={setUser}/>
+      <Nav setLoggednIn={setLoggedIn} loggedIn={loggedIn} user={user} setUser={setUser} />
       <Switch>
         <Route exact path="/">
           <Login setLoggedIn={setLoggedIn} />
@@ -70,18 +70,19 @@ const Main = () => {
           <Register />
         </Route>
         <Route path="/drink">
-        <div className="container">
+          <div className="container">
             <h1>How would you like your drink?</h1>
             <DrinkForm drink={drinks} setDrinks={setDrinks} createDrink={createDrink} />
           </div>
         </Route>
         <Route path="/order">
-        <OrderIndex drinks={drinks} getDrinks={getDrinks} />
-      </Route>
-      <Route path="/createNewOrder" >
-        <NewOrder createOrder={createOrder} />
-      </Route>
-    </Switch>
+          <OrderIndex drinks={drinks} getDrinks={getDrinks} />
+        </Route>
+        <Route path="/createNewOrder" >
+          <NewOrder createOrder={createOrder} />
+        </Route>
+      </Switch>
+    </div>
   )
 }
 
