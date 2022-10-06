@@ -1,12 +1,9 @@
 import { React, useState } from 'react'
 import { Formik, Form, Field, FieldArray, ErrorMessage } from 'formik';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import * as Yup from 'yup';
 
 
 function NewOrder() {
-    const [startDate, setStartDate] = useState(new Date());
     const [numOfInvites, setInvites] = useState(0);
 
     let initialValues = {
@@ -30,6 +27,7 @@ function NewOrder() {
         return (
             <Formik initialValues={initialValues}
                 validationSchema={Yup.object({
+                    scheduledTimeOfOrder: Yup.date(),
                     groupList: Yup.array().of(
                         Yup.object({
                             email: Yup.string().email("Invalid email").required("Required"),
@@ -40,28 +38,24 @@ function NewOrder() {
                     setTimeout(() => {
                         alert(JSON.stringify(values, null, 2));
                     }, 500);
-                }}
-            >
+                }}>
                 {({ values, isSubmitting }) => (
                     <Form>
-                        Date:
-                        <DatePicker name="scheduledTimeOfOrder" selected={startDate} value={startDate} onChange={(date) => setStartDate(date)} />
+                        <h4>Date:</h4>
+                        <Field name="scheduledTimeOfOrder" type="Date" />
                         <h4>Invitee's Email Addresses:</h4>
-                        <h3># of Invites</h3>
+
 
                         <FieldArray name="groupList">
                             {({ push, remove }) => (
                                 <>
-                                    <input type="text" onChange={handleChange} />
-                                    <button onClick={() => {
-                                        for (let i = 0; i < numOfInvites; i++) {
+                                    <input type="number" onChange={handleChange} />
+                                    <button type="button" onClick={() => {
+                                        for (let i = 1; i < numOfInvites; i++) {
                                             push();
                                         }
-                                    }} >Add</button>
-
-                                    <button type="number" onClick={() => push()} disabled={isSubmitting}>+1</button>
-
-                                    {values.groupList && (values.groupList.length) > 0 && values.groupList.map((list, index) => (
+                                    }} >Add # of Invites</button>
+                                    {values.groupList && (values.groupList.length) > 1 && values.groupList.map((list, index) => (
                                         <div className="row" key={index}>
                                             <div className="col">
                                                 <Field name={`groupList[${index}].email`}>
@@ -74,14 +68,16 @@ function NewOrder() {
                                                 </ErrorMessage>
                                             </div>
                                             <div className="col">
-                                                <button type="button" onClick={() => remove(index)}>X</button>
+                                                <button type="button" onClick={() => remove(index)}>remove</button>
                                             </div>
+
                                         </div>
                                     ))}
+                                    {/* <button type="number" onClick={() => push()} disabled={isSubmitting}>Add additional attendees</button> */}
                                 </>
                             )}
                         </FieldArray>
-                        <button type="submit" disabled={isSubmitting}>Create Event and Invite Attendees</button>
+                        <button type="submit">Create Event and Invite Attendees</button>
                     </Form>
                 )
                 }
@@ -97,21 +93,3 @@ function NewOrder() {
     )
 }
 export default NewOrder;
-
-// {
-//     "company": "Starbucks",
-//         "friends": [
-//             {
-//                 "name": "Hello",
-//                 "email": "Hello@gmail.com"
-//             },
-//             {
-//                 "name": "hello",
-//                 "email": "there@123.com"
-//             },
-//             {
-//                 "name": "No",
-//                 "email": "Stopit@now.com"
-//             }
-//         ]
-// }

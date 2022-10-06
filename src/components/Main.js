@@ -22,6 +22,19 @@ const Main = () => {
     });
   }
 
+  const createOrderURL = "http://localhost:4000/orders/allOrders/";
+
+  //post route for order
+  const createOrder = async (order) => {
+    await fetch(createOrderURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(order)
+    });
+  }
+
   const getURL = "http://localhost:4000/orders/allItems/63372013187b01b84368ce48/";
 
   //index route for host
@@ -62,7 +75,7 @@ const Main = () => {
       <Route path="/order">
         <OrderIndex drinks={drinks} getDrinks={getDrinks} />
       </Route>
-      <Route path="/createNewOrder">
+      <Route path="/createNewOrder" createOrder={createOrder}>
         <NewOrder />
       </Route>
     </Switch>
