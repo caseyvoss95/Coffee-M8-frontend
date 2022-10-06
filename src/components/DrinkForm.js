@@ -15,6 +15,10 @@ const DrinkForm = (props) => {
         orderId: "63372013187b01b84368ce48"
     });
 
+    const [drinkAlert, setDrinkAlert] = useState("");
+
+    const [drinkOrdered, setDrinkOrdered] = useState(false);
+
     const handleChange = (event) => {
         setForm({ ...form, [event.target.name]: event.target.value });
         console.log(form);
@@ -22,8 +26,12 @@ const DrinkForm = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        props.createDrink(form);
-        console.log("drink is", form);
+        if (!drinkOrdered) { //ignore subsequent attemps to submit
+            props.createDrink(form);
+            console.log("drink is", form);
+            setDrinkAlert("Drink Submitted");
+            setDrinkOrdered(true);
+        }
     }
 
     return (
@@ -68,7 +76,9 @@ const DrinkForm = (props) => {
                 </select>
                 <button className="btn" id="submit" type="submit" value="submit">submit</button>
             </div>
+            {drinkAlert}
         </form>
+
     )
 }
 
