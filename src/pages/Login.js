@@ -15,6 +15,12 @@ const Login = ({ setLoggedIn }) => {
 
     const history = useHistory();
 
+    const handleEnter = async (event) => {
+        if (event.key === 'Enter') {
+            login();
+        }
+    }
+
     const login = async (event) => {
         try {
             const user = await signInWithEmailAndPassword(auth, username, password);
@@ -36,12 +42,14 @@ const Login = ({ setLoggedIn }) => {
         <div className="container">
             <h1>Sign in to order</h1>
             <div className="form-group">
-                <input className="form-control" placeholder="email" onChange={(event) => { setUsername(event.target.value) }} value={username} />
-                <input className="form-control" placeholder="password" onChange={(event) => { setPassword(event.target.value) }} value={password} />
+                <input className="form-control" placeholder="email" onChange={(event) => { setUsername(event.target.value) }} value={username} onKeyPress={handleEnter} />
+                <input className="form-control" placeholder="password" onChange={(event) => { setPassword(event.target.value) }} value={password} onKeyPress={handleEnter} />
+
             </div>
             <button className="btn" id="login" onClick={login}>Sign in</button>
             <Link to="order">hosting an event?</Link>
-            </div>
+        </div>
+
 
 
     )
