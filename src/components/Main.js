@@ -20,7 +20,7 @@ const Main = () => {
   //all drinks state
   const [drinks, setDrinks] = useState(null);
 
-  const createDrinkURL = "http://localhost:4000/orders/allItems/";
+  const createDrinkURL = "https://coffee-m8-backend.herokuapp.com/orders/allItems/";
 
   //post route for drink
   const createDrink = async (drink) => {
@@ -34,7 +34,7 @@ const Main = () => {
   }
 
 
-  const createOrderURL = "http://localhost:4000/orders/allOrders/";
+  const createOrderURL = "https://coffee-m8-backend.herokuapp.com/orders/allOrders/";
 
   //post route for order
   const createOrder = async (order) => {
@@ -47,7 +47,7 @@ const Main = () => {
     });
   }
 
-  const getDrinksURL = "http://localhost:4000/orders/allItems/63372013187b01b84368ce48/";
+  const getDrinksURL = "https://coffee-m8-backend.herokuapp.com/orders/allItems/63372013187b01b84368ce48/";
 
   //index route for host
   const getDrinks = async () => {
