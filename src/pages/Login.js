@@ -35,15 +35,15 @@ const Login = ({ setLoggedIn }) => {
     return (
         <div className="container">
             <h1>Sign in to order</h1>
-            <Link to="/drink"><button className="btn">User Login</button></Link>
-            <Link to="/order"><button className="btn">Host Login</button></Link>
-            <br />
             <div className="form-group">
                 <input className="form-control" placeholder="email" onChange={(event) => { setUsername(event.target.value) }} value={username} />
                 <input className="form-control" placeholder="password" onChange={(event) => { setPassword(event.target.value) }} value={password} />
             </div>
             <button className="btn" id="login" onClick={login}>Sign in</button>
-        </div>
+            <Link to="order">hosting an event?</Link>
+            </div>
+
+
     )
 }
 
