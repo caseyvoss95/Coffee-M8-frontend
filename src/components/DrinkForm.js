@@ -13,8 +13,8 @@ const DrinkForm = (props) => {
         flavor: drinkSeed.flavor[0],
         toppings: drinkSeed.topping[0],
         orderId: "63372013187b01b84368ce48",
-        userID: 'foo'
-    });
+        userId: props.user.email,
+        hi: ''   });
 
     const [drinkAlert, setDrinkAlert] = useState("");
 
@@ -22,12 +22,13 @@ const DrinkForm = (props) => {
 
     const handleChange = (event) => {
         setForm({ ...form, [event.target.name]: event.target.value });
+        console.log(props.user.email);
         console.log(form);
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (!drinkOrdered) { //ignore subsequent attemps to submit
+        if (!drinkOrdered && props.user.email) { //ignore subsequent attemps to submit
             props.createDrink(form);
             console.log("drink is", form);
             setDrinkAlert("Drink Submitted");
