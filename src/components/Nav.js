@@ -1,13 +1,11 @@
-import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 
 
-const Nav = () => {
+const Nav = ({user, setUser}) => {
   
-  const [user, setUser] = useState({})
 
   const history = useHistory();
 

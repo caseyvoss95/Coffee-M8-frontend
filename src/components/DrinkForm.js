@@ -12,7 +12,8 @@ const DrinkForm = (props) => {
         milk: drinkSeed.milk[0],
         flavor: drinkSeed.flavor[0],
         toppings: drinkSeed.topping[0],
-        orderId: "63372013187b01b84368ce48"
+        orderId: "63372013187b01b84368ce48",
+        userID: 'foo'
     });
 
     const [drinkAlert, setDrinkAlert] = useState("");
