@@ -1,8 +1,8 @@
-Coffee M8 - Simplifying group orders
+Coffe M8 - Simplifying group orders
 --
-​
+
 It's 2022, gone are the days where we pass around a phone to make a group order (or a menu, or a pen and paper for that matter). 
-​
+
 Technologies used
 --
 * React 18
@@ -18,16 +18,16 @@ Technologies used
 * Firebase
 * Formik
 * Yup
-​
+
 Getting Started
 --
-​
+
 ![image](assets/wireframe.png)
-​
+
 Unsolved Problems
 --
 none
-​
+
 Future Enhancements
 --
 * Add credentialed login for the host.
