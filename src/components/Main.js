@@ -64,7 +64,7 @@ const Main = () => {
 
       <Nav setLoggednIn={setLoggedIn} loggedIn={loggedIn} user={user} setUser={setUser} />
       <div className="container" id="user">
-        {user?.email}
+        logged in as: {user?.email}
       </div>
       <Switch>
         <Route exact path="/">
