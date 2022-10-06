@@ -2,7 +2,7 @@ const OrderIndex = (props) => {
 
     const loaded = () => {
         return  props.drinks.map((drink) => (
-                <div className="container" key={drink._id}><h1>{drink.productName}</h1>
+                <div className="container" id="drinks" key={drink._id}><h1>{drink.productName}</h1>
                                      <p>{drink.productSize}</p>
                                      <p>{drink.milk}</p>
                                      <p>{drink.flavor}</p>
