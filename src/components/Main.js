@@ -20,11 +20,11 @@ const Main = () => {
   //all drinks state
   const [drinks, setDrinks] = useState(null);
 
-  const createURL = "https://coffee-m8-backend.herokuapp.com/orders/allItems/";
+  const createDrinkURL = "http://localhost:4000/orders/allItems/";
 
   //post route for drink
   const createDrink = async (drink) => {
-    await fetch(createURL, {
+    await fetch(createDrinkURL, {
       method: "POST",
       headers: {
         "Content-Type": "Application/json",
@@ -33,11 +33,25 @@ const Main = () => {
     });
   }
 
-  const getURL = "https://coffee-m8-backend.herokuapp.com/orders/allItems/63372013187b01b84368ce48/";
+
+  const createOrderURL = "http://localhost:4000/orders/allOrders/";
+
+  //post route for order
+  const createOrder = async (order) => {
+    await fetch(createOrderURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "Application/json",
+      },
+      body: JSON.stringify(order)
+    });
+  }
+
+  const getDrinksURL = "http://localhost:4000/orders/allItems/63372013187b01b84368ce48/";
 
   //index route for host
   const getDrinks = async () => {
-    const response = await fetch(getURL);
+    const response = await fetch(getDrinksURL);
     const data = await response.json();
     setDrinks(data);
     console.log('drinks we have', data);
@@ -63,13 +77,11 @@ const Main = () => {
         </Route>
         <Route path="/order">
         <OrderIndex drinks={drinks} getDrinks={getDrinks} />
-        </Route>
-        <Route path="/createNewOrder">
-        <NewOrder />
-        </Route>
-      </Switch>
-    </div>
-
+      </Route>
+      <Route path="/createNewOrder" >
+        <NewOrder createOrder={createOrder} />
+      </Route>
+    </Switch>
   )
 }
 
