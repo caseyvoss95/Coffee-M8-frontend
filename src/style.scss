@@ -6,6 +6,7 @@
     background-color: #006241 !important;
     border-radius: 8px;
     margin: 5px;
+    color: white;
 }
 
 div#drinks.container {
@@ -107,4 +108,27 @@ h1 {
     font-size: large;
     font-weight: bolder;
     padding: 25px 0px 0px 0px;
+}
+
+.link,
+.link:visited,
+.link:hover,
+.link:active {
+    text-decoration: none;
+    color: #ab8262;
+    margin-left: 5px;
+}
+
+.event,
+.event:visited,
+.event:hover,
+.event:active {
+    text-decoration: none;
+    color: #006241;
+    margin-left: 5px;
+}
+
+.burger{
+    margin-right: 5px;
+    
 }

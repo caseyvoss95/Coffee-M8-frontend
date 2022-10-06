@@ -29,14 +29,15 @@ const Navi = ({ user, setUser }) => {
 
     <Navbar expand="lg" >
       <Link to="/"><img src="https://i.imgur.com/cwGYR3k.png" id="logo" alt="Coffee M8" /></Link>
-      <Navbar.Toggle />
+      <Navbar.Toggle className="burger" />
       <Navbar.Collapse>
         <Nav>
-          <Link to="/">Home</Link>
-          <Link to="/register">Register</Link>
+          <Link className="link" to="/">Home</Link>
+          <Link className="link" to="/register">Register</Link>
+          <Link className="link" to="/drink">Order a Drink</Link>
         </Nav>
         <Nav>
-          <Link to="/" onClick={logout}>Logout</Link>
+          <Link className="link" to="/" onClick={logout}>Logout</Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

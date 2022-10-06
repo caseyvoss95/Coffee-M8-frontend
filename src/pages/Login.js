@@ -44,10 +44,9 @@ const Login = ({ setLoggedIn }) => {
             <div className="form-group">
                 <input className="form-control" placeholder="email" onChange={(event) => { setUsername(event.target.value) }} value={username} onKeyPress={handleEnter} />
                 <input className="form-control" placeholder="password" onChange={(event) => { setPassword(event.target.value) }} value={password} onKeyPress={handleEnter} />
-
             </div>
             <button className="btn" id="login" onClick={login}>Sign in</button>
-            <Link to="order">hosting an event?</Link>
+            <Link className="event" to="/createNewOrder">hosting an event?</Link>
         </div>
 
 
