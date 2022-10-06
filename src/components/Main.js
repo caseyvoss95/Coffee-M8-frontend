@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
-import Nav from "./Nav";
+import Navi from "./Nav";
 import Login from "../pages/Login";
 import DrinkForm from "./DrinkForm";
 import NewOrder from "./NewOrder";
 import OrderIndex from "./OrderIndex";
 import Register from "../pages/Register";
+
 
 const Main = () => {
 
@@ -61,7 +62,11 @@ const Main = () => {
 
   return (
     <div className="main">
-      <Nav setLoggednIn={setLoggedIn} loggedIn={loggedIn} user={user} setUser={setUser} />
+
+      <Navi setLoggednIn={setLoggedIn} loggedIn={loggedIn} user={user} setUser={setUser} />
+      <div className="container" id="user">
+        logged in as: {user?.email}
+      </div>
       <Switch>
         <Route exact path="/">
           <Login setLoggedIn={setLoggedIn} />
@@ -72,7 +77,7 @@ const Main = () => {
         <Route path="/drink">
           <div className="container">
             <h1>How would you like your drink?</h1>
-            <DrinkForm drink={drinks} setDrinks={setDrinks} createDrink={createDrink} />
+            <DrinkForm drink={drinks} setDrinks={setDrinks} createDrink={createDrink} user={user} setUser={setUser}/>
           </div>
         </Route>
         <Route path="/order">

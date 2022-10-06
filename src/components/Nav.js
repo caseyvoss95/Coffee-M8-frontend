@@ -2,32 +2,46 @@ import { Link, useHistory } from "react-router-dom";
 import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
+import { Nav, Navbar } from "react-bootstrap";
 
+const Navi = ({ user, setUser }) => {
 
-const Nav = ({user, setUser}) => {
-  
 
   const history = useHistory();
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
-});
-  
+  });
+
   const logout = async () => {
     await signOut(auth);
     localStorage.clear();
-    history.push('/');
+    // history.push('/');
   }
 
   return (
-    <nav className="navbar">
-      Coffee-M8
-      <Link to="/"><button className="btn btn-secondary"  >Home</button></Link>
-      {user?.email}
-      <button className="btn btn-danger btn-sm" id="logout" onClick={logout}>logout</button>
-      
-    </nav>
+    // <nav className="navbar">
+    //   <Link to="/"><img src="https://i.imgur.com/cwGYR3k.png" id="logo" /></Link>
+
+    //     <Link to="/register"><button className="btn btn-secondary btn-sm">User Registration</button></Link>
+    //     <button className="btn btn-danger btn-sm" id="logout" onClick={logout}>Logout</button>
+    // </nav>
+
+    <Navbar expand="lg" >
+      <Link to="/"><img src="https://i.imgur.com/cwGYR3k.png" id="logo" /></Link>
+      <Navbar.Toggle />
+      <Navbar.Collapse>
+        <Nav>
+          <Link to="/">Home</Link>
+          <Link to="/register">Register</Link>
+        </Nav>
+        <Nav>
+          <Link to="/" onClick={logout}>Logout</Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+
   )
 }
 
-export default Nav;
+export default Navi;
