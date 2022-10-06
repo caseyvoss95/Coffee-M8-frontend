@@ -72,7 +72,7 @@ const Main = () => {
         <Route path="/drink">
           <div className="container">
             <h1>How would you like your drink?</h1>
-            <DrinkForm drink={drinks} setDrinks={setDrinks} createDrink={createDrink} />
+            <DrinkForm drink={drinks} setDrinks={setDrinks} createDrink={createDrink} user={user} setUser={setUser}/>
           </div>
         </Route>
         <Route path="/order">
