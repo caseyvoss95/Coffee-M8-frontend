@@ -1,13 +1,13 @@
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { Nav, Navbar } from "react-bootstrap";
+// import { useHistory } from "react-router-dom";
 
 const Navi = ({ user, setUser }) => {
 
-
-  const history = useHistory();
+  // const history = useHistory();
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
@@ -28,7 +28,7 @@ const Navi = ({ user, setUser }) => {
     // </nav>
 
     <Navbar expand="lg" >
-      <Link to="/"><img src="https://i.imgur.com/cwGYR3k.png" id="logo" /></Link>
+      <Link to="/"><img src="https://i.imgur.com/cwGYR3k.png" id="logo" alt="Coffee M8" /></Link>
       <Navbar.Toggle />
       <Navbar.Collapse>
         <Nav>
