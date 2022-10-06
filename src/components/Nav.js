@@ -24,8 +24,8 @@ const Nav = ({user, setUser}) => {
       Coffee-M8
       <Link to="/"><button className="btn btn-secondary"  >Home</button></Link>
       {user?.email}
-      <button className="btn btn-danger btn-sm" id="logout" onClick={logout}>logout</button>
-      
+      <Link to="/register"><button className="btn btn-secondary btn-sm">User Registration</button></Link>
+      <button className="btn btn-danger btn-sm" id="logout" onClick={logout}>Logout</button>
     </nav>
   )
 }

@@ -4,7 +4,7 @@
 
 #submit {
     background-color: #006241 !important;
-
+    border-radius: 8px;
     margin: 5px;
 }
 
@@ -27,3 +27,22 @@ div#drinks.container {
     width: 50%;
 
 }
+
+#login, #register {
+    background-color: #006241;
+    border-radius: 20px;
+    margin-top: 5px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    color: white;
+}
+
+.form-group {
+    margin-top: 20px;
+}
+
+.form-control {
+    margin-top: 5px;
+}
+
