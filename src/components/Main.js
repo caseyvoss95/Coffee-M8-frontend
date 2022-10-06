@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Route, Switch, } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import Nav from "./Nav";
 import Login from "../pages/Login";
 import DrinkForm from "./DrinkForm";
 import NewOrder from "./NewOrder";
@@ -7,10 +8,13 @@ import OrderIndex from "./OrderIndex";
 import Register from "../pages/Register";
 
 const Main = () => {
-  
+
+  //history utility loaded
+  // const history = useHistory();
+
   //authentication state
   const [loggedIn, setLoggedIn] = useState(false);
-  
+
   //all drinks state
   const [drinks, setDrinks] = useState(null);
 
@@ -37,44 +41,35 @@ const Main = () => {
     console.log('drinks we have', data);
   }
 
-
-  // //update drink route
-  // const updateDrink = async (drink) => {
-  //   await fetch(URL, {
-  //     method: "PUT",
-  //     headers: {
-  //       "Content-Type": "Application/json"
-  //     },
-  //     body: JSON.stringify(drink)
-  //   })
-  //   //refresh index here.. "" etc
-  // }
-
   useEffect(() => { getDrinks() }, []);
 
-
   return (
-    <Switch>
-      <Route exact path="/">
-        <Login setLoggedIn={setLoggedIn} />
-      </Route>
-      <Route path="/register">
-        <Register/>
-      </Route>
-      {loggedIn && <Route path="/drink">
+    <div className="main">
+      <Nav setLoggednIn={setLoggedIn} loggedIn={loggedIn} />
+      <Switch>
+        <Route exact path="/">
+          <Login setLoggedIn={setLoggedIn} />
+        </Route>
+        <Route path="/register">
+          <Register />
+        </Route>
+        <Route path="/drink">
         <div className="container">
-          <h1>How would you like your drink?</h1>
-          <DrinkForm drink={drinks} setDrinks={setDrinks} createDrink={createDrink} />
-        </div>
-      </Route>}
-      {loggedIn && <Route path="/order">
-        <OrderIndex drinks={drinks} getDrinks={getDrinks} />
-      </Route>}
-      {loggedIn &&<Route path="/createNewOrder">
+            <h1>How would you like your drink?</h1>
+            <DrinkForm drink={drinks} setDrinks={setDrinks} createDrink={createDrink} />
+          </div>
+        </Route>
+        <Route path="/order">
+        <OrderIndex drinks={drinks} getDrinks={getDrinks} />}
+        </Route>
+        <Route path="/createNewOrder">
         <NewOrder />
-      </Route>}
-    </Switch>
+        </Route>
+      </Switch>
+    </div>
+
   )
 }
+
 
 export default Main;
