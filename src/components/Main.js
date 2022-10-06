@@ -60,7 +60,7 @@ const Main = () => {
           </div>
         </Route>
         <Route path="/order">
-        <OrderIndex drinks={drinks} getDrinks={getDrinks} />}
+        <OrderIndex drinks={drinks} getDrinks={getDrinks} />
         </Route>
         <Route path="/createNewOrder">
         <NewOrder />
