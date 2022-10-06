@@ -62,3 +62,47 @@ div#user.container {
     text-align: right;
     margin-bottom: 20px;
 }
+
+.createEventBtn {
+    height: 75px;
+    width: 200px;
+    background-color: #006241;
+    color: white;
+    border-radius: 9px;
+    border: none;
+    display: block;
+    margin-top: 25px;
+}
+
+h1 {
+    padding: 30px 0px 25px 0px;
+}
+
+.inviteField {
+    width: 60px;
+}
+
+.inviteFieldBtn {
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    padding: 0px 0px 25px 0px;
+}
+
+.removeBtn {
+    background-color: transparent;
+    color: grey;
+    border-color: lightgrey;
+    border-radius: 20px;
+}
+
+.dateCalendar {
+    display: inline;
+    border: none;
+}
+
+.invitations {
+    font-size: large;
+    font-weight: bolder;
+    padding: 25px 0px 0px 0px;
+}
