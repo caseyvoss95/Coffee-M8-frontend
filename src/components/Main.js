@@ -14,6 +14,8 @@ const Main = () => {
 
   //authentication state
   const [loggedIn, setLoggedIn] = useState(false);
+  const [user, setUser] = useState({})
+
 
   //all drinks state
   const [drinks, setDrinks] = useState(null);
@@ -45,7 +47,7 @@ const Main = () => {
 
   return (
     <div className="main">
-      <Nav setLoggednIn={setLoggedIn} loggedIn={loggedIn} />
+      <Nav setLoggednIn={setLoggedIn} loggedIn={loggedIn} user={user} setUser={setUser}/>
       <Switch>
         <Route exact path="/">
           <Login setLoggedIn={setLoggedIn} />
