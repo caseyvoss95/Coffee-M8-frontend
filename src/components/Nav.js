@@ -2,7 +2,7 @@ import { Link, useHistory } from "react-router-dom";
 import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 
 const Navi = ({ user, setUser }) => {
 
@@ -27,11 +27,11 @@ const Navi = ({ user, setUser }) => {
     //     <button className="btn btn-danger btn-sm" id="logout" onClick={logout}>Logout</button>
     // </nav>
 
-    <Navbar collapseOnSelect expand="lg" >
+    <Navbar expand="lg" >
       <Link to="/"><img src="https://i.imgur.com/cwGYR3k.png" id="logo" /></Link>
-      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="mr-auto">
+      <Navbar.Toggle />
+      <Navbar.Collapse>
+        <Nav>
           <Link to="/">Home</Link>
           <Link to="/register">Register</Link>
         </Nav>
