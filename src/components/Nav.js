@@ -2,7 +2,6 @@ import { Link, useHistory } from "react-router-dom";
 import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
-import {Nav, Navbar, NavDropdown} from "react-bootstrap"
 
 
 const Nav = ({ user, setUser }) => {
@@ -26,9 +25,9 @@ const Nav = ({ user, setUser }) => {
 
       <nav className="navbar navbar-expand-sm">
         <button className="navbar-toggler" type="button">
-          <Link to="/register"><button className="btn btn-secondary btn-sm">User Registration</button></Link>
-          <button className="btn btn-danger btn-sm" id="logout" onClick={logout}>Logout</button>
-        </button>
+        <Link to="/register"><button className="btn btn-secondary btn-sm">User Registration</button></Link>
+        <button className="btn btn-danger btn-sm" id="logout" onClick={logout}>Logout</button>
+      </button>
       </nav>
     </nav>
   )
