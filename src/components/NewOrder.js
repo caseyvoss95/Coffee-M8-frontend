@@ -1,5 +1,6 @@
 import { React, useState } from 'react'
 import { Formik, Form, Field, FieldArray, ErrorMessage } from 'formik';
+import { useHistory } from "react-router-dom";
 import * as Yup from 'yup';
 
 
@@ -16,6 +17,9 @@ function NewOrder(props) {
         setInvites(event.target.value);
         console.log(numOfInvites);
     }
+
+    const history = useHistory();
+
     // populate invite fields
     function inviteFields() {
         return (
@@ -29,27 +33,27 @@ function NewOrder(props) {
                 onSubmit={values => {
                     console.log(values, props)
                     props.createOrder(values);
+                    history.push('/order');
                     // setTimeout(() => {
                     //     alert(JSON.stringify(values, null, 2));
                     // }, 500);
                 }}>
                 {({ values }) => (
                     <Form>
-                        <h4>Date:</h4>
-                        <Field name="scheduledTimeOfOrder" type="Date" />
-                        <h4>Invitee's Email Addresses:</h4>
+                        Event Date: <Field name="scheduledTimeOfOrder" type="Date" className="dateCalender" />
+                        <div className="invitations">Invitations:</div>
 
                         {/* Initial Formik Field Array, w/ push and remove functionality*/}
                         <FieldArray name="groupInvite">
                             {({ push, remove }) => (
                                 <>
-                                    <input className="inviteField" type="number" onChange={handleChange} />
-                                    <button type="button" onClick={(event) => {
+                                    <input className="inviteField" type="number" onChange={handleChange} placeholder="0" />
+                                    <button className="inviteFieldBtn" type="button" onClick={(event) => {
                                         event.preventDefault();
                                         for (let i = 0; i < numOfInvites; i++) {
                                             push();
                                         }
-                                    }} >Add # of Invites</button>
+                                    }} >Add Guestlist</button>
 
                                     {/* Create rows based on input */}
                                     {values.groupInvite && (values.groupInvite.length) > 0 && values.groupInvite.map((list, index) => (
@@ -66,7 +70,7 @@ function NewOrder(props) {
                                                 </ErrorMessage>
                                             </div>
                                             <div className="col">
-                                                <button type="button" className="removebtn" onClick={() => remove(index)}>remove</button>
+                                                <button type="button" className="removeBtn" onClick={() => remove(index)}>-</button>
                                             </div>
                                         </div>
                                     ))}
@@ -76,14 +80,15 @@ function NewOrder(props) {
                         </FieldArray>
                         <button type="submit" className='createEventBtn'>Create Event and Invite Attendees</button>
                     </Form>
-                )}
+                )
+                }
             </Formik >
         )
     }
 
     return (
 
-        <div>
+        <div class="container">
             <h1>Create New Group Order</h1>
             {inviteFields()}
         </div >
