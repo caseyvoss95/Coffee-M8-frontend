@@ -2,9 +2,9 @@ import { Link, useHistory } from "react-router-dom";
 import { auth } from "../firebase-config";
 import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
+import { Nav, Navbar } from "react-bootstrap";
 
-
-const Nav = ({ user, setUser }) => {
+const Navi = ({ user, setUser }) => {
 
 
   const history = useHistory();
@@ -16,21 +16,32 @@ const Nav = ({ user, setUser }) => {
   const logout = async () => {
     await signOut(auth);
     localStorage.clear();
-    history.push('/');
+    // history.push('/');
   }
 
   return (
-    <nav className="navbar">
-      <Link to="/"><img src="https://i.imgur.com/cwGYR3k.png" id="logo" /></Link>
+    // <nav className="navbar">
+    //   <Link to="/"><img src="https://i.imgur.com/cwGYR3k.png" id="logo" /></Link>
 
-      <nav className="navbar navbar-expand-sm">
-        <button className="navbar-toggler" type="button">
-        <Link to="/register"><button className="btn btn-secondary btn-sm">User Registration</button></Link>
-        <button className="btn btn-danger btn-sm" id="logout" onClick={logout}>Logout</button>
-      </button>
-      </nav>
-    </nav>
+    //     <Link to="/register"><button className="btn btn-secondary btn-sm">User Registration</button></Link>
+    //     <button className="btn btn-danger btn-sm" id="logout" onClick={logout}>Logout</button>
+    // </nav>
+
+    <Navbar expand="lg" >
+      <Link to="/"><img src="https://i.imgur.com/cwGYR3k.png" id="logo" /></Link>
+      <Navbar.Toggle />
+      <Navbar.Collapse>
+        <Nav>
+          <Link to="/">Home</Link>
+          <Link to="/register">Register</Link>
+        </Nav>
+        <Nav>
+          <Link to="/" onClick={logout}>Logout</Link>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+
   )
 }
 
-export default Nav;
+export default Navi;
