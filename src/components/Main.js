@@ -62,6 +62,9 @@ const Main = () => {
   return (
     <div className="main">
       <Nav setLoggednIn={setLoggedIn} loggedIn={loggedIn} user={user} setUser={setUser} />
+      <div className="container" id="user">
+        logged in as: {user?.email}
+      </div>
       <Switch>
         <Route exact path="/">
           <Login setLoggedIn={setLoggedIn} />
