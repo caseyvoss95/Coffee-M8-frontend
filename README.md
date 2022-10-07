@@ -26,9 +26,11 @@ Getting Started
 
 Unsolved Problems
 --
-none
+* Protect Routes when user is not authenticated.
+* 
 
 Future Enhancements
 --
 * Add credentialed login for the host.
-* 
+* Update to latest version of React-Router-DOM
+
