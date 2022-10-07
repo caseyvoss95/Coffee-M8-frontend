@@ -26,8 +26,7 @@ Getting Started
 
 Unsolved Problems
 --
-* Protect Routes when user is not authenticated.
-* 
+* Protect routes when user is not authenticated.
 
 Future Enhancements
 --
