@@ -10,20 +10,31 @@ Technologies used
 * Express
 * Embedded Java Script
 * CSS3
+* SASS
+* Boostrap
 * Javascript
 * Mongoose
 * MongoDB
+* Firebase
+* Formik
+* Yup
+* Heroku
+* Netlify
 
 Getting Started
 --
 
 ![image](assets/wireframe.png)
-App is under construction! Check out our [Trello Board](https://trello.com/b/iFW7IhrW/coffees).
+[click here](https://main--coffeem8.netlify.app/) to demo this app!
 
 Unsolved Problems
 --
-none
+* Protect routes when user is not authenticated.
+* Refresh issues with database.
+* React-Router-Dom issues with Netlify.
 
 Future Enhancements
 --
-App is in production, stay tuned.
+* Add credentialed login for the host.
+* Update to latest version of React-Router-DOM
+

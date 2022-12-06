@@ -2,10 +2,133 @@
     background-color: #006241;
 }
 
-
-
-
 #submit {
     background-color: #006241 !important;
+    border-radius: 8px;
     margin: 5px;
+    color: white;
+}
+
+div#drinks.container {
+    border-bottom-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+.createEventBtn {
+    height: 100px;
+    width: 100px;
+    background-color: #006241;
+    color: white;
+    border-radius: 9px;
+    border: none;
+}
+
+.inviteField {
+    width: 50%;
+
+}
+
+#login, #register {
+    background-color: #006241;
+    border-radius: 20px;
+    margin-top: 5px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    color: white;
+}
+
+.form-group {
+    margin-top: 20px;
+}
+
+.form-control {
+    margin-top: 5px;
+}
+
+#logo {
+    width: 60px;
+    margin-left: 5px;
+}
+
+#logout {
+    border-radius: 20px;
+    
+}
+
+div#user.container {
+    margin-left: auto;
+    margin-right: 5px;
+    text-align: right;
+    margin-bottom: 20px;
+    color: #808080;
+
+}
+
+.createEventBtn {
+    height: 75px;
+    width: 200px;
+    background-color: #006241;
+    color: white;
+    border-radius: 9px;
+    border: none;
+    display: block;
+    margin-top: 25px;
+}
+
+h1 {
+    padding: 30px 0px 25px 0px;
+}
+
+.inviteField {
+    width: 60px;
+}
+
+.inviteFieldBtn {
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    padding: 0px 0px 25px 0px;
+}
+
+.removeBtn {
+    background-color: transparent;
+    color: grey;
+    border-color: lightgrey;
+    border-radius: 20px;
+}
+
+.dateCalendar {
+    display: inline;
+    border: none;
+}
+
+.invitations {
+    font-size: large;
+    font-weight: bolder;
+    padding: 25px 0px 0px 0px;
+}
+
+.link,
+.link:visited,
+.link:hover,
+.link:active {
+    text-decoration: none;
+    color: #ab8262;
+    margin-left: 5px;
+}
+
+.event,
+.event:visited,
+.event:hover,
+.event:active {
+    text-decoration: none;
+    color: #006241;
+    margin-left: 5px;
+}
+
+.burger{
+    margin-right: 5px;
+    
 }

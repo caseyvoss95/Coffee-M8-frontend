@@ -1,14 +1,10 @@
 const OrderIndex = (props) => {
 
     const loaded = () => {
-        return  props.drinks.map((drink) => (
-                <div className="container" key={drink._id}><h1>{drink.productName}</h1>
-                                     <p>{drink.productSize}</p>
-                                     <p>{drink.milk}</p>
-                                     <p>{drink.flavor}</p>
-                                     <p>{drink.toppings}</p>
-                
-                </div>
+        return props.drinks.map((drink) => (
+            <div className="container" id="drinks" key={drink._id}><h5>{drink.userId}: {drink.productName}</h5>
+                <p>{drink.productSize}, {drink.milk}, {drink.flavor}, {drink.toppings}</p>
+            </div>
         ))
     }
 
